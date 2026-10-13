@@ -12,7 +12,7 @@ if ($img.PropertyIdList -contains 0x0112) {
   $flip = @{ 3 = 2; 6 = 1; 8 = 3 }[[int]$img.GetPropertyItem(0x0112).Value[0]]
   if ($flip) { $img.RotateFlip($flip) }
 }
-$scale = [Math]::Min(1.0,800 / [Math]::Max($img.Width, $img.Height))
+$scale = 800 / [Math]::Max($img.Width, $img.Height)
 $w = [int][Math]::Round($img.Width * $scale)
 $h = [int][Math]::Round($img.Height * $scale)
 
